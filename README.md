@@ -47,7 +47,7 @@ Build a simple poll application that enables users to:
 
 ---
 
-### ✅ Vote State Sharing and Room Management
+### 🧠 Vote State Sharing and Room Management
 - 🔹 The application uses an **in-memory approach** on the backend to manage vote state and room participation.
 
 - 🔹 When a user **creates a room**, a unique 6-character `roomId` is generated and stored in a `rooms` object, which contains:
