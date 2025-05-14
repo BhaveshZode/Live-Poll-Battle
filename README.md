@@ -1,73 +1,112 @@
+Absolutely! Here's the full **`README.md`** content in **Markdown format**, ready to copy and paste directly into your GitHub repository:
+
+````markdown
+# Live Poll Battle 🎯
+
+A real-time, interactive polling app where users can create poll battles, share room codes, and let others vote live. Perfect for quick decisions, friendly competitions, or just some fun group opinion battles.
+
+---
+
 ## Installation and Running Guide
 
 Follow the steps below to clone and run the application on your local machine:
 
 ### 1. Clone the repository
 
-bash
-git clone https://github.com/AnkitS-21/Poll_Battle
-cd Poll_Battle
-
+```bash
+git clone https://github.com/BhaveshZode/Live-Poll-Battle
+cd Live-Poll-Battle
+````
 
 ### 2. Set up the server
 
-bash
+```bash
 cd server
 npm install
 node index.js
-
+```
 
 ### 3. Set up the client
 
 Open a new terminal window/tab:
 
-bash
+```bash
 cd client
 npm install
 npm start
+```
 
+The client will run on [http://localhost:3000](http://localhost:3000) and the server on [http://localhost:5000](http://localhost:5000) (or as configured).
 
-The client will run on http://localhost:3000 and the server on http://localhost:5000 (or as configured).
+---
+
+## 🔄 How It Works
+
+1. **Create a Poll Battle:**
+
+   * Enter your **name**, a **poll question**, and **two options**.
+   * Click **"Create Room"** to generate a session.
+
+2. **Room Code Generation:**
+
+   * A unique **room code** is created.
+   * Share this room code with friends to let them join and vote.
+
+3. **Join as a Voter:**
+
+   * Voters enter their **name** and the shared **room code** to join.
+   * Once the **first voter** joins, a **60-second timer** starts.
+
+4. **Live Voting:**
+
+   * Voters can vote only **once**.
+   * Votes are reflected in **real-time** across all connected clients.
+
+5. **Voting Ends:**
+
+   * After 60 seconds, voting ends automatically.
+   * The option with the most votes is declared the **winner**.
+
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
-In the project directory, you can run:
+In the `client` directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
+Runs the app in development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
+The page will reload when you make changes.
 You may also see any lint errors in the console.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
+Launches the test runner in interactive watch mode.
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Builds the app for production to the `build` folder.
+It correctly bundles React in production mode and optimizes the build for best performance.
 
-The build is minified and the filenames include the hashes.\
+The build is minified and the filenames include the hashes.
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will copy all configuration files and dependencies into your project, giving you full control.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
 ## Learn More
 
@@ -75,27 +114,14 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+Other useful links:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+* [Code Splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+* [Analyzing Bundle Size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+* [Making a PWA](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+* [Advanced Configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
 
