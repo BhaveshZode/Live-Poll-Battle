@@ -1,6 +1,4 @@
-Absolutely! Here's the full **`README.md`** content in **Markdown format**, ready to copy and paste directly into your GitHub repository:
 
-````markdown
 # Live Poll Battle 🎯
 
 A real-time, interactive polling app where users can create poll battles, share room codes, and let others vote live. Perfect for quick decisions, friendly competitions, or just some fun group opinion battles.
