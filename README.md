@@ -1,22 +1,72 @@
+# 🗳️ Live Poll Battle
 
-# Live Poll Battle 🎯
-
-A real-time, interactive polling app where users can create poll battles, share room codes, and let others vote live. Perfect for quick decisions, friendly competitions, or just some fun group opinion battles.
+A real-time web application where users can create or join a poll room and vote live. The results are updated instantly across all users in the room using WebSockets. Designed to test full-stack fundamentals and real-time communication.
 
 ---
 
-## Installation and Running Guide
+## 📌 Objective
 
-Follow the steps below to clone and run the application on your local machine:
+Build a simple poll application that enables users to:
 
-### 1. Clone the repository
+- Create or join a poll room.
+- Vote live between two options.
+- See votes update in real-time.
+- Automatically end polling after 60 seconds.
+
+---
+
+## 🚀 Tech Stack
+
+- **Frontend**: ReactJS
+- **Backend**: Node.js, Express, Socket.IO (WebSockets)
+
+---
+
+## 🛠️ Features Implemented
+
+### ✅ Frontend (ReactJS)
+
+- 🔹 Allows user to enter their **name** (unique, no password required).
+- 🔹 User can:
+  - **Create a new poll room** with a question and two options.
+  - **Join an existing poll room** using a unique room code.
+- 🔹 Displays the poll question and two voting options.
+- 🔹 One vote per user — prevents re-voting.
+- 🔹 **Live vote count** updates for all users using WebSockets.
+- 🔹 **60-second countdown timer** starts when the first voter joins.
+- 🔹 Voting is automatically disabled when the timer ends.
+- 🔹 **LocalStorage** is used to persist user vote across refreshes.
+
+### ✅ Backend (Node.js + WebSockets)
+
+- 🔹 Handles **poll room creation and storage** (in-memory).
+- 🔹 Accepts and broadcasts votes using **Socket.IO**.
+- 🔹 Maintains poll state (votes, participants, timer) in memory.
+- 🔹 Supports **multiple independent poll rooms** simultaneously.
+- 🔹 Automatically synchronizes vote state and timer with all connected clients.
+
+---
+
+### Vote State Sharing and Room Management
+
+The application manages vote state and room participation using an in-memory approach on the backend (`server/index.js`). When a user creates a room, a unique 6-character `roomId` is generated and stored in the `rooms` object along with the question, options, connected users, current votes, a voting timer, and a flag for voted users (tracked using a `Set`). When a user joins a room, their WebSocket connection is associated with the corresponding room, and the server starts a countdown timer (60 seconds) if it hasn't already started.
+
+Each vote is sent over WebSocket and handled by updating the room's vote count and broadcasting the new vote tallies to all connected clients in real-time. Users are prevented from voting more than once through the `voted` set and client-side local storage (ensuring persistence across page refreshes). Once the timer reaches zero, the server broadcasts a `VOTING_ENDED` event to disable further voting in the room. This approach ensures all users in the same room receive synchronized, real-time updates without requiring a database or external state management.
+
+---
+
+## 📦 Installation & Setup
+
+Follow these steps to run the application locally:
+
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/BhaveshZode/Live-Poll-Battle
 cd Live-Poll-Battle
 ````
 
-### 2. Set up the server
+### 2. Start the Server
 
 ```bash
 cd server
@@ -24,9 +74,9 @@ npm install
 node index.js
 ```
 
-### 3. Set up the client
+### 3. Start the Client
 
-Open a new terminal window/tab:
+Open a new terminal tab/window:
 
 ```bash
 cd client
@@ -34,92 +84,25 @@ npm install
 npm start
 ```
 
-The client will run on [http://localhost:3000](http://localhost:3000) and the server on [http://localhost:5000](http://localhost:5000) (or as configured).
+* Client will run at: [http://localhost:3000](http://localhost:3000)
+* Server will run at: [http://localhost:5000](http://localhost:5000)
 
 ---
 
-## 🔄 How It Works
+## 👨‍💻 Author
 
-1. **Create a Poll Battle:**
-
-   * Enter your **name**, a **poll question**, and **two options**.
-   * Click **"Create Room"** to generate a session.
-
-2. **Room Code Generation:**
-
-   * A unique **room code** is created.
-   * Share this room code with friends to let them join and vote.
-
-3. **Join as a Voter:**
-
-   * Voters enter their **name** and the shared **room code** to join.
-   * Once the **first voter** joins, a **60-second timer** starts.
-
-4. **Live Voting:**
-
-   * Voters can vote only **once**.
-   * Votes are reflected in **real-time** across all connected clients.
-
-5. **Voting Ends:**
-
-   * After 60 seconds, voting ends automatically.
-   * The option with the most votes is declared the **winner**.
+**Bhavesh Zode**
+GitHub: [https://github.com/BhaveshZode](https://github.com/BhaveshZode)
 
 ---
 
-# Getting Started with Create React App
+## 📃 License
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the `client` directory, you can run:
-
-### `npm start`
-
-Runs the app in development mode.
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in interactive watch mode.
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.
-It correctly bundles React in production mode and optimizes the build for best performance.
-
-The build is minified and the filenames include the hashes.
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will copy all configuration files and dependencies into your project, giving you full control.
-
----
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-Other useful links:
-
-* [Code Splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-* [Analyzing Bundle Size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-* [Making a PWA](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-* [Advanced Configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+This project is for educational purposes and not currently licensed.
 
 ---
 
 ```
+
+
 
