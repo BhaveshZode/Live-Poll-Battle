@@ -47,11 +47,26 @@ Build a simple poll application that enables users to:
 
 ---
 
-### Vote State Sharing and Room Management
+### ✅ Vote State Sharing and Room Management
+- 🔹 The application uses an **in-memory approach** on the backend to manage vote state and room participation.
 
-The application manages vote state and room participation using an in-memory approach on the backend (`server/index.js`). When a user creates a room, a unique 6-character `roomId` is generated and stored in the `rooms` object along with the question, options, connected users, current votes, a voting timer, and a flag for voted users (tracked using a `Set`). When a user joins a room, their WebSocket connection is associated with the corresponding room, and the server starts a countdown timer (60 seconds) if it hasn't already started.
+- 🔹 When a user **creates a room**, a unique 6-character `roomId` is generated and stored in a `rooms` object, which contains:
+    - The poll question and two options
+    - List of connected users
+    - Vote count per option
+    - Timer (60 seconds)
+    - A `Set` to track users who have already voted
 
-Each vote is sent over WebSocket and handled by updating the room's vote count and broadcasting the new vote tallies to all connected clients in real-time. Users are prevented from voting more than once through the `voted` set and client-side local storage (ensuring persistence across page refreshes). Once the timer reaches zero, the server broadcasts a `VOTING_ENDED` event to disable further voting in the room. This approach ensures all users in the same room receive synchronized, real-time updates without requiring a database or external state management.
+- 🔹 When a user **joins a room**, their WebSocket connection is linked to that room, and the timer starts (if it hasn't already).
+
+- 🔹 When a user votes:
+    - The backend checks for duplicate votes using the `voted` Set.
+    - Valid votes update the vote count and are broadcasted to all users in real-time using WebSockets.
+    - On the frontend, votes are also stored in `localStorage` to persist across refreshes.
+
+- 🔹 After 60 seconds, the server broadcasts a `VOTING_ENDED` event, and the vote buttons are disabled for all users.
+
+- 🔹 This architecture allows for **real-time synchronization** across multiple users without needing a database — ideal for lightweight, live polling experiences.
 
 ---
 
@@ -101,8 +116,3 @@ GitHub: [https://github.com/BhaveshZode](https://github.com/BhaveshZode)
 This project is for educational purposes and not currently licensed.
 
 ---
-
-```
-
-
-
