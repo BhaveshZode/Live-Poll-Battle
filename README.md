@@ -24,10 +24,6 @@ Build a simple poll application that enables users to:
 
 ## 🛠️ Features Implemented
 
-## 🛠️ Features Implemented
-
-## 🛠️ Features Implemented
-
 ### ✅ Frontend (ReactJS)
 
 - 🔹 Allows user to enter their **name** (unique, no password required).
@@ -48,7 +44,7 @@ Build a simple poll application that enables users to:
 - 🔹 Maintains poll state (votes, participants, timer) in memory.
 - 🔹 Supports **multiple independent poll rooms** simultaneously.
 - 🔹 Automatically synchronizes vote state and timer with all connected clients.
-
+  
 ---
 
 ### 🧠 Vote State Sharing and Room Management
