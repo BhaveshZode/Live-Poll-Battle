@@ -24,12 +24,14 @@ Build a simple poll application that enables users to:
 
 ## 🛠️ Features Implemented
 
+## 🛠️ Features Implemented
+
 ### ✅ Frontend (ReactJS)
 
  🔹 Allows user to enter their **name** (unique, no password required).
  🔹 User can:
-    - **Create a new poll room** with a question and two options.
-    - **Join an existing poll room** using a unique room code.
+   - **Create a new poll room** with a question and two options.
+   - **Join an existing poll room** using a unique room code.
  🔹 Displays the poll question and two voting options.
  🔹 One vote per user — prevents re-voting.
  🔹 **Live vote count** updates for all users using WebSockets.
